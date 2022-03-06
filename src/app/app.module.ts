@@ -15,6 +15,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { TableComponent } from './modules/tables/component/table/table.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomeComponent,
     InsertComponent,
     TablesComponent,
-    ProfileComponent
+    ProfileComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
