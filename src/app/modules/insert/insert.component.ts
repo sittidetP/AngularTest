@@ -1,5 +1,7 @@
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -7,13 +9,20 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './insert.component.html',
   styleUrls: ['./insert.component.scss']
 })
-export class InsertComponent implements AfterViewInit {
+export class InsertComponent implements  OnInit, AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  constructor() { }
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private _liveAnnouncer: LiveAnnouncer) {}
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+  ngOnInit(): void {    
+    
   }
 }
 
@@ -35,3 +44,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
+
+
+//

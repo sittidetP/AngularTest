@@ -19,6 +19,7 @@ import { TableComponent } from './modules/tables/component/table/table.component
 import { SuperheroComponent } from './modules/superhero/superhero.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     TablesComponent,
     ProfileComponent,
     TableComponent,
-    SuperheroComponent
+    SuperheroComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatButtonModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
