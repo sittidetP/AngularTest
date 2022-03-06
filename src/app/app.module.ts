@@ -8,6 +8,10 @@ import { HomeComponent } from './modules/home/home.component';
 import { InsertComponent } from './modules/insert/insert.component';
 import { TablesComponent } from './modules/tables/tables.component';
 import { ProfileComponent } from './modules/profile/profile.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import { MatSliderModule } from '@angular/material/slider';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { ProfileComponent } from './modules/profile/profile.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MainLayoutModule
+    MainLayoutModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSliderModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
