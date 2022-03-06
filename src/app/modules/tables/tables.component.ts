@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
@@ -27,7 +28,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TablesComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
   form!: FormGroup;
   positionNow = 11;
 
@@ -48,7 +49,15 @@ export class TablesComponent implements OnInit {
     });
   }
   onSubmit(){
-    console.log(this.form.value)
+    //console.log(this.form);
+    //console.log(this.form.value);
+    
+    this.position.setValue(this.positionNow);
+    this.positionNow += 1;
+    ELEMENT_DATA.push(this.form.value);
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    this.form.reset();
+    //console.log(this.form.value)
   }
 
   get position(): FormControl{
