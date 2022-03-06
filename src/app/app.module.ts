@@ -16,6 +16,9 @@ import { MatInputModule } from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TableComponent } from './modules/tables/component/table/table.component';
+import { SuperheroComponent } from './modules/superhero/superhero.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { TableComponent } from './modules/tables/component/table/table.component
     InsertComponent,
     TablesComponent,
     ProfileComponent,
-    TableComponent
+    TableComponent,
+    SuperheroComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { TableComponent } from './modules/tables/component/table/table.component
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
