@@ -28,3 +28,24 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <form class="input" class="input" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your name</mat-label>
+          <input matInput placeholder="Hydrogen" formControlName="name">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your weight</mat-label>
+          <input matInput placeholder="1.0079" formControlName="weight">
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your symbol</mat-label>
+          <input matInput placeholder="H" formControlName="symbol">
+        </mat-form-field>
+        <br>
+        <button type="submit" mat-raised-button color="primary">
+          submit
+        </button>
+      </form>

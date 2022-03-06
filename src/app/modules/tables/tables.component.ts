@@ -1,25 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-tables',
-  templateUrl: './tables.component.html',
-  styleUrls: ['./tables.component.scss']
-  })
-  export class TablesComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
-  ngOnInit(): void {
-  }
-  }
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
-  }
-  const ELEMENT_DATA: PeriodicElement[] = [
+}
+const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
@@ -30,4 +18,50 @@ export interface PeriodicElement {
   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
+];
+@Component({
+  selector: 'app-tables',
+  templateUrl: './tables.component.html',
+  styleUrls: ['./tables.component.scss']
+})
+export class TablesComponent implements OnInit {
+
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = ELEMENT_DATA;
+  form!: FormGroup;
+  positionNow = 11;
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit(): void {
+    console.log("ngOnInit")
+    this.setFormGroup();
+  }
+
+
+  setFormGroup(){
+    this.form = this.formBuilder.group({
+      position: this.positionNow,
+      name: [null, Validators.required],
+      weight: [null, Validators.required],
+      symbol: [null, Validators.required]
+    });
+  }
+  onSubmit(){
+    console.log(this.form.value)
+  }
+
+  get position(): FormControl{
+    return this.form.get('position') as FormControl;
+  }
+  get name(): FormControl{
+    return this.form.get('name') as FormControl;
+  }
+  get weight(): FormControl{
+    return this.form.get('weight') as FormControl;
+  }
+  get symbol(): FormControl{
+    return this.form.get('symbol') as FormControl;
+  }
+
+}
