@@ -7,13 +7,15 @@ import { MainLayoutModule } from './layout/main-layout/main-layout.module';
 import { HomeComponent } from './modules/home/home.component';
 import { InsertComponent } from './modules/insert/insert.component';
 import { TablesComponent } from './modules/tables/tables.component';
+import { ProfileComponent } from './modules/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InsertComponent,
-    TablesComponent
+    TablesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
