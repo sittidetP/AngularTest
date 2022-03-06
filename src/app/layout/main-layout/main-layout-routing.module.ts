@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/app/modules/home/home.component';
 import { InsertComponent } from 'src/app/modules/insert/insert.component';
+import { ProfileComponent } from 'src/app/modules/profile/profile.component';
 import { TablesComponent } from 'src/app/modules/tables/tables.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'tables',
         component: TablesComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
       },
 
     ]
