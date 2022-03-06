@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -6,14 +7,14 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './insert.component.html',
   styleUrls: ['./insert.component.scss']
 })
-export class InsertComponent implements OnInit {
+export class InsertComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   constructor() { }
-
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
-
 }
 
 export interface PeriodicElement {
